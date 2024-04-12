@@ -114,7 +114,7 @@ class VetorOrdenado:
         for i in range(self.ultimaPosicao + 1):
             print(i, ' - ', self.valores[i].vertice.rotulo, ' - ', self.valores[i].vertice.distanciaObjetivo, ' - ', self.valores[i].custo, " - ", self.valores[i].custoAEstrela)
 
-class BuscaGulosa:
+class BuscaAEstrela:
     def __init__(self, objetivo):
         self.objetivo = objetivo
         self.encontrado = False
