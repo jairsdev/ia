@@ -12,8 +12,6 @@ for linha in open("flights.txt"):
     voos.setdefault((origem, destino), [])
     voos[(origem, destino)].append([saida, chegada, int(preco)])
 
-agenda = [1,2, 3,2, 7,3, 6,3, 2,4, 5,3]
-
 def imprimirVoos(agenda):
     idVoo = -1
     custoTotal = 0
@@ -31,8 +29,6 @@ def imprimirVoos(agenda):
         print('%10s%10s %5s-%5s %3s %5s-%5s %3s' % (cidade, origem, vooIda[0], vooIda[1], vooIda[2], vooVolta[0], vooVolta[1], vooVolta[2]))
     print(custoTotal)
 
-imprimirVoos(agenda)
-
 def fitness(agenda):
     idVoo = -1
     custoTotal = 0
@@ -48,8 +44,14 @@ def fitness(agenda):
         custoTotal += vooVolta[2]
     return custoTotal
 
+import six
+import sys
+sys.modules['sklearn.externals.six'] = six
 import mlrose
 
 fitness = mlrose.CustomFitness(fitness)
-problema = mlrose.DiscreteOpt(12, fitness_fn=fitness, maximize=False, max_val=10)
+problema = mlrose.DiscreteOpt(length=12, fitness_fn=fitness, maximize=False, max_val=10)
+
+melhorSolucao, melhorCusto = mlrose.hill_climb(problema)
+imprimirVoos(melhorSolucao)
 
