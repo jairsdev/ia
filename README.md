@@ -1,1 +1,1 @@
-# Repositório para postar as programas relacionados a ia que eu estou fazendo
+# Repositório para postar alguns programas relacionados a IA para fins ditáticos
