@@ -32,3 +32,24 @@ def imprimirVoos(agenda):
     print(custoTotal)
 
 imprimirVoos(agenda)
+
+def fitness(agenda):
+    idVoo = -1
+    custoTotal = 0
+    for i in range(len(agenda) // 2):
+        cidade = pessoas[i][0]
+        origem = pessoas[i][1]
+        idVoo += 1
+        vooIda = voos[(origem, destino)][agenda[idVoo]]
+        custoTotal += vooIda[2]
+
+        idVoo += 1
+        vooVolta = voos[(destino, origem)][agenda[idVoo]]
+        custoTotal += vooVolta[2]
+    return custoTotal
+
+import mlrose
+
+fitness = mlrose.CustomFitness(fitness)
+problema = mlrose.DiscreteOpt(12, fitness_fn=fitness, maximize=False, max_val=10)
+
