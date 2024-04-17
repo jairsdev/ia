@@ -55,3 +55,8 @@ problema = mlrose.DiscreteOpt(length=12, fitness_fn=fitness, maximize=False, max
 melhorSolucao, melhorCusto = mlrose.hill_climb(problema)
 imprimirVoos(melhorSolucao)
 
+melhorSolucao, melhorCusto = mlrose.simulated_annealing(problema, mlrose.decay.ExpDecay(10000000))
+imprimirVoos(melhorSolucao)
+
+melhorSolucao, melhorCusto = mlrose.genetic_alg(problema, mutation_prob=0.2, max_attempts=100)
+imprimirVoos(melhorSolucao)
