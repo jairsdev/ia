@@ -1,3 +1,10 @@
+"""O problema consiste na escolha de quais produtos serão escolhidos para um caminhão carregar pensando no maior lucro.
+Algumas informações importantes:
+O caminhão tem 3m³ de capacidade.
+A soma dos volumes dos produtos é 4.79m³.
+A solução será um vetor em que cada índice será relacionado a um produto considerando a ordem do dicionário que possui as informações dos produtos.
+Cada posição no vetor da solução vai assumir valores de 0 ou 1, 0 para não colocar no caminhão e 1 caso o contrário.
+"""
 import six
 import sys
 sys.modules['sklearn.externals.six'] = six
