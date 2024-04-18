@@ -38,7 +38,7 @@ def fitness(solucao):
         posicao += 1
         if (solucao[posicao] == 1):
             precoTotal += produtos[produto][0][1]
-            volumeTotal += produtos[produto][0][0]
+            volumeTotal += produtos[produto][0][0]xcv 
 
     if (volumeTotal > 3):
         return -1
