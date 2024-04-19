@@ -18,9 +18,9 @@ atendimento.automf(number=3, names=['ruim', 'aceitavel', 'otimo'])
 gorjeta['media'] = fuzzy.trimf(gorjeta.universe, [2, 10, 18])
 gorjeta['alta'] = fuzzy.trimf(gorjeta.universe, [12, 20, 20])"""
 
-gorjeta['baixa'] = fuzzy.pimf(gorjeta.universe, )
-gorjeta['media'] = fuzzy.pimf(gorjeta.universe, 5, -1)
-gorjeta['alta'] = fuzzy.pimf(gorjeta.universe, 10, -1)  
+gorjeta['baixa'] = fuzzy.sigmf(gorjeta.universe, 5, -1)
+gorjeta['media'] = fuzzy.gaussmf(gorjeta.universe, 10, 3)
+gorjeta['alta'] = fuzzy.pimf(gorjeta.universe, 10, 20, 25, 50)  
 
 regra1 = ctrl.Rule(qualidade['ruim'] | atendimento['ruim'], gorjeta['baixa'])
 regra2 = ctrl.Rule(atendimento['aceitavel'], gorjeta['media'])
