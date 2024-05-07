@@ -4,7 +4,10 @@ import tensorflow as tf
 import pandas as pd
 import numpy as np
 import seaborn as sns
+import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+from sklearn.metrics import confusion_matrix
 
 dataset = pd.read_csv('personagens.csv', encoding='utf-8')
 """print(dataset.shape)
@@ -35,3 +38,19 @@ print(neuralNetwork.summary())
 neuralNetwork.compile(optimizer='Adam', loss='binary_crossentropy', metrics=['accuracy'])
 
 history = neuralNetwork.fit(XTrain, yTrain, epochs=50, validation_split=0.1)
+
+print(history.history.keys())
+#plt.plot(history.history['val_accuracy'])
+
+predicts = neuralNetwork.predict(XTest)
+predicts = (predicts > 0.5)
+#print(predicts)
+
+acurracyTest = accuracy_score(predicts, yTest)
+
+confusionMatrix = confusion_matrix(predicts, yTest)
+print(confusionMatrix)
+
+sns.heatmap(confusionMatrix, annot=True)
+plt.show()
+
