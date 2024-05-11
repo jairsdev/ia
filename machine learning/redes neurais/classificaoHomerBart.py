@@ -46,7 +46,7 @@ predicts = neuralNetwork.predict(XTest)
 predicts = (predicts > 0.5)
 #print(predicts)
 
-acurracyTest = accuracy_score(predicts, yTest)
+accuracyTest = accuracy_score(predicts, yTest)
 
 confusionMatrix = confusion_matrix(predicts, yTest)
 print(confusionMatrix)

@@ -7,10 +7,12 @@ import time
 
 env = gym.make("Taxi-v3", render_mode="ansi")
 qTabela = np.zeros([env.observation_space.n, env.action_space.n])
+print(env.observation_space.n)
 probabilidade = 0.1
 gamma = 0.6
 alpha = 0.1
 
+print(env.reset())
 for i in range(10000):
     estado = env.reset()[0]
     recompensa, penalidade = 0, 0
