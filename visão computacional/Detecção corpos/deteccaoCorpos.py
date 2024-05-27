@@ -8,7 +8,7 @@ detection = detecter.detectMultiScale(imgGray, 1.002, minSize=(60, 60), maxSize=
 print(detection)
 
 for x, y, w, h in detection:
-    cv2.rectangle(img, (x, y), (x + w, y + h), (0, 255, 0))
+    cv2.rectangle(img, (x, y), (x + w, y + h), (0, 255, 0), 2)
 
 cv2.imshow("imagem detecção", img)
 cv2.waitKey(0)
